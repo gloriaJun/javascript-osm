@@ -26,12 +26,13 @@ function loadLeafMap(location = [], zoomLevel = 7, zoomMaxLevel = 18) {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  // set marker
+  // set marker - marker에 대한 객체를 반환한다.
+  L.marker(location).addTo(map);
 }
 
 // openlayers 로딩
 function loadOpenLayers(location = [], zoomLevel = 7) {
-  new ol.Map({
+  const map = new ol.Map({
     target: 'openLayerMap',
     view: new ol.View({
       center: ol.proj.fromLonLat(location),
@@ -43,6 +44,8 @@ function loadOpenLayers(location = [], zoomLevel = 7) {
       }),
     ],
   });
+
+  // const marker = new ol.layer.mark
 }
 
 
